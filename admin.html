@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <title>Admin Panel</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    const password = prompt("Enter Admin Password:");
+    if (password !== "admin123") {
+      alert("Access Denied!");
+      window.location.href = "admin.html";
+    }
+  </script>
+  
+</head>
+<body>
+
+  <h1>Admin Panel - Orders</h1>
+
+  <div id="orders-list"></div>
+
+  <br><br>
+  <a href="admin.html">Reload</a>
+
+
+
+  <script>
+	function loadOrders() {
+  fetch("get_orders.php")
+    .then(res => res.json())
+    .then(data => {
+      const ordersList = document.getElementById("orders-list");
+      ordersList.innerHTML = "";
+
+      if (!data.success || data.orders.length === 0) {
+        ordersList.innerHTML = "<p>No orders found.</p>";
+        return;
+      }
+
+      data.orders.forEach((order, index) => {
+        const orderDiv = document.createElement("div");
+        orderDiv.className = "order";
+
+        let itemsHtml = "<ul>";
+        order.items.forEach(item => {
+          itemsHtml += `<li>${item.item} x${item.quantity} - ₹${item.price * item.quantity}</li>`;
+        });
+        itemsHtml += "</ul>";
+
+        orderDiv.innerHTML = `
+          <h3>Order #${order.id}</h3>
+          <p><strong>Name:</strong> ${order.customer_name}</p>
+          <p><strong>Phone:</strong> ${order.phone}</p>
+          <p><strong>Address:</strong> ${order.address}</p>
+          ${itemsHtml}
+          <p><strong>Total:</strong> ₹${order.total_amount}</p>
+          <p><em>${new Date(order.order_time).toLocaleString()}</em></p>
+          <hr/>
+        `;
+        ordersList.appendChild(orderDiv);
+      });
+    })
+    .catch(err => {
+      console.error("Error loading orders:", err);
+      document.getElementById("orders-list").innerHTML = "<p>Error loading orders.</p>";
+    });
+}
+
+loadOrders();
+setInterval(loadOrders, 3000); // auto-refresh
+</script>
+
+</body>
+</html>

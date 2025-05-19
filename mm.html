@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--meta charset="UTF-8" />-->
+  <title>Food Order</title>
+  <!--<link rel="stylesheet" href="css/style.css" >-->
+    <link rel="stylesheet" href="css/try.css" >
+
+</head>
+<body style="background: url('images/background.jpeg') no-repeat center center fixed; background-size: cover;">
+
+  <h1>Food Order</h1><br>
+  
+  
+  <h2>Pizza Section</h2><br>
+  <div class="menu">
+    <div class="item">
+	 
+      <h3>Classic Pizza</h3>
+      <p>₹200</p>
+      <button onclick="addToCart('Classic Pizza', 200)">Add to Cart</button>
+    </div>
+    <div class="item">
+	  
+      <h3>Golden Corn Pizza</h3>
+      <p>₹100</p>
+      <button onclick="addToCart('Golden Corn Pizza', 100)">Add to Cart</button>
+    </div>
+    <div class="item">
+	  
+      <h3>Onion Pizza</h3>
+      <p>₹200</p>
+      <button onclick="addToCart('Onion Pizza', 200)">Add to Cart</button>
+    </div>
+    <div class="item">
+      <h3>Veg Loaded Pizza</h3>
+      <p>₹200</p>
+      <button onclick="addToCart('Veg Loaded Pizza', 200)">Add to Cart</button>
+    </div>
+    <div class="item">
+      <h3>Paneer Pizza</h3>
+      <p>₹200</p>
+      <button onclick="addToCart('Paneer Pizza', 200)">Add to Cart</button>
+    </div>
+    <div class="item">
+      <h3>Farmhouse Pizza</h3>
+      <p>₹200</p>
+      <button onclick="addToCart('Farmhouse Pizza', 200)">Add to Cart</button>
+    </div>
+  </div> 
+  
+  
+  <h2>Burger Section</h2><br>
+  <div class="menu">
+    <div class="item">
+      <h3>Veg Burger</h3>
+      <p>₹200</p>
+      <button onclick="addToCart('Veg Burger', 200)">Add to Cart</button>
+    </div>
+    <div class="item">
+      <h3>Paneer Burger</h3>
+      <p>₹200</p>
+      <button onclick="addToCart('Paneer Burger', 200)">Add to Cart</button>
+    </div>
+    <div class="item">
+      <h3>Spicy Burger</h3>
+      <p>₹200</p>
+      <button onclick="addToCart('Spicy Burger', 200)">Add to Cart</button>
+    </div>
+  </div>
+  
+  <h2>Fries Section </h2>
+	<div class="menu">
+    <div class="item">
+      <h3>Normal Fries</h3>
+      <p>₹200</p>
+      <button onclick="addToCart('Normal Fries', 200)">Add to Cart</button>
+    </div>
+    <div class="item">
+      <h3>Chessy Fries</h3>
+      <p>₹200</p>
+      <button onclick="addToCart('Chessy Fries', 200)">Add to Cart</button>
+    </div>
+    <div class="item">
+      <h3>Peri Peri Fries</h3>
+      <p>₹200</p>
+      <button onclick="addToCart('Peri Peri Fries', 200)">Add to Cart</button>
+    </div>
+	<div class="item">
+      <h3>Cheesy Peri Peri Fries</h3>
+      <p>₹200</p>
+      <button onclick="addToCart('Cheesy Peri Peri Fries', 200)">Add to Cart</button>
+    </div>
+	
+	
+	
+  </div>
+
+  <h2>Your Cart</h2>
+  <ul id="cart-list"></ul>
+  <p>Total: ₹<span id="total">0</span></p>
+  <button onclick="placeOrder()">Place Order</button>
+
+  <br><br>
+  
+  <!-- Order Success Popup -->
+<div id="success-popup" class="popup">
+  <div class="popup-content">
+    <h2>✅ Order Placed Successfully!</h2>
+  </div>
+  
+  	
+</div>
+
+
+  <script src="js/script1.js"></script>
+
+</body>
+</html>
